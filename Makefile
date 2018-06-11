@@ -1,10 +1,11 @@
 PATH := github.com/makki0205/go-docker
 PORT := 8080
+TAG := go-docker
 
 build:
-	docker build -t go-docker .
+	docker build -t $(TAG) .
 
 dev:
-	docker run -it -v $(PWD):/go/src/$(PATH) -p $(PORT):$(PORT) go-docker sh
+	docker run -it -v $(PWD):/go/src/$(PATH) -p $(PORT):$(PORT) $(TAG) sh
 run:
-	docker run -it -v $(PWD):/go/src/$(PATH) -p $(PORT):$(PORT) go-docker go run main.go
+	docker run -it -v $(PWD):/go/src/$(PATH) -p $(PORT):$(PORT) $(TAG) go run main.go
